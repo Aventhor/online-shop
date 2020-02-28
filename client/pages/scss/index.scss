@@ -1,0 +1,22 @@
+.MuiTypography-h4 {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+
+.MuiTextField-root,
+.MuiButton-root,
+.MuiTypography-root {
+    margin: .5rem 0;
+}
+
+.MuiTypography-root .MuiLink-root {
+    margin: 0 .3rem;
+}
+
+.MuiButton-textPrimary {
+    color: #ffffff;
+    &:hover {
+        color: #ebebeb;
+    }
+}

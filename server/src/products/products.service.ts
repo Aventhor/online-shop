@@ -19,6 +19,8 @@ export class ProductsService {
 
     async findOne(id: number): Promise<ProductDto> {
         const product = await this.productsRepository.findOne({ where: { 'product_id': id } });
+        if (!product) throw new HttpException('Product not found', HttpStatus.NOT_FOUND);
+
         return new ProductDto(product);
     }
 
@@ -37,6 +39,7 @@ export class ProductsService {
 
     async update(id: number, updateProductDto: UpdateProductDto): Promise<Product> {
         const product = await this.productsRepository.findByPk(id);
+        if (!product) throw new HttpException('Product not found', HttpStatus.NOT_FOUND);
 
         product.name = updateProductDto.name || product.name;
         product.price = updateProductDto.price || product.price;
